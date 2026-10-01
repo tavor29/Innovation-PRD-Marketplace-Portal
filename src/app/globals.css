@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/*
+ * Theme values match the portfolio's design tokens (tavor29.github.io,
+ * src/styles/tokens.css): ink on paper, the four bright shape colours, and
+ * the status colours from PRD 9.3 (red = blocked, yellow = needs a
+ * mitigation, green = approved). Layout uses logical properties only
+ * (ms-/me-/ps-/pe-/start-/end-) so RTL is native (NFR-01).
+ */
+@theme {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Hebrew", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-ink: #0a0a0a;
+  --color-ink-muted: rgb(10 10 10 / 0.6);
+  --color-ink-rule: rgb(10 10 10 / 0.12);
+  --color-ink-wash: rgb(10 10 10 / 0.04);
+  --color-paper: #fafafa;
+  --color-paper-muted: rgb(250 250 250 / 0.6);
+  --color-accent: #e5484d;
+
+  --color-mark-half: #2a78d6;
+  --color-mark-quarter: #eb6834;
+  --color-mark-circle: #fab219;
+  --color-mark-leaf: #0ca30c;
+
+  --color-status-good: #0ca30c;
+  --color-status-warning: #fab219;
+  --color-status-serious: #ec835a;
+  --color-status-critical: #d03b3b;
+
+  --radius-sm: 8px;
+  --radius-md: 20px;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+/* Generated PRD markdown (lib/markdown.tsx). */
+.prose-prd h1 { font-size: 1.75rem; font-weight: 700; margin-block: 0 1rem; }
+.prose-prd h2 { font-size: 1.25rem; font-weight: 700; margin-block: 2rem 0.75rem; padding-block-end: 0.25rem; border-block-end: 1px solid var(--color-ink-rule); }
+.prose-prd h3 { font-size: 1rem; font-weight: 700; margin-block: 1.25rem 0.5rem; }
+.prose-prd p { margin-block: 0.5rem; }
+.prose-prd ul, .prose-prd ol { padding-inline-start: 1.25rem; margin-block: 0.5rem; }
+.prose-prd ul { list-style: disc; }
+.prose-prd ol { list-style: decimal; }
+.prose-prd table { width: 100%; border-collapse: collapse; margin-block: 0.75rem; font-size: 0.875rem; }
+.prose-prd th, .prose-prd td { border-block-end: 1px solid var(--color-ink-rule); padding: 0.4rem 0.5rem; text-align: start; vertical-align: top; }
+.prose-prd th { font-weight: 600; color: var(--color-ink-muted); }

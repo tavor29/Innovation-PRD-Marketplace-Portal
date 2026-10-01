@@ -11,3 +11,6 @@ coverage
 playwright-report
 test-results
 drizzle/meta/_journal.json.bak
+.pgdata
+tsconfig.tsbuildinfo
+next-env.d.ts

@@ -14,5 +14,6 @@ export default defineConfig({
     locale: "he-IL",
     trace: "on-first-retry",
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  // Uses the locally installed Chrome, so no browser download is needed.
+  projects: [{ name: "chrome", use: { ...devices["Desktop Chrome"], channel: "chrome" } }],
 });

@@ -7,7 +7,7 @@ const PUBLIC_PATHS = ["/login", "/api/auth"];
  * Lightweight edge guard: redirects unauthenticated users to /login. Deep
  * authorization (roles, ownership) is enforced server-side in each route.
  */
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (PUBLIC_PATHS.some((p) => pathname.startsWith(p))) return NextResponse.next();
 

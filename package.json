@@ -7,7 +7,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "pg:local": "node scripts/pg-local.mjs",
     "db:generate": "drizzle-kit generate",
@@ -17,7 +16,9 @@
     "worker": "tsx src/lib/jobs/worker.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "db:setup": "drizzle-kit push --force && tsx scripts/ensure-seed.ts",
+    "vercel-build": "npm run db:setup && next build"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.39",
