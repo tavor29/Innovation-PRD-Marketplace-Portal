@@ -3,6 +3,8 @@
 // error response when there is one.
 import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
+import { eq } from "drizzle-orm";
+import { db, schema } from "@/db";
 import { auth } from "../../../auth";
 import type { Role } from "./roles";
 
@@ -14,11 +16,19 @@ export interface SessionUser {
   departmentId?: string;
 }
 
+/**
+ * The session only proves who signed in. Role, department and id are read
+ * from the database on every request, so an admin's role change applies at
+ * once, a deactivated user is locked out, and a demo reset (which recreates
+ * every row) doesn't leave sessions pointing at ids that no longer exist.
+ */
 async function current(): Promise<SessionUser | null> {
   const session = await auth();
-  const u = session?.user;
-  if (!u?.id || !u.role) return null;
-  return { id: u.id, name: u.name ?? "", email: u.email ?? "", role: u.role, departmentId: u.departmentId };
+  const email = session?.user?.email;
+  if (!email) return null;
+  const [u] = await db.select().from(schema.users).where(eq(schema.users.email, email.toLowerCase())).limit(1);
+  if (!u || !u.isActive) return null;
+  return { id: u.id, name: u.fullName, email: u.email, role: u.role, departmentId: u.departmentId ?? undefined };
 }
 
 export async function requireUser(allowed?: Role[]): Promise<SessionUser> {
