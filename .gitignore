@@ -14,3 +14,6 @@ drizzle/meta/_journal.json.bak
 .pgdata
 tsconfig.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*
