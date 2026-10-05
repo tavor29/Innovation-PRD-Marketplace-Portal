@@ -5,7 +5,7 @@
 ל-vibe-coders או למפתחים.
 
 > **דמו עם נתונים סינתטיים.** Meridian Dynamics היא חברה בדויה. ה-AI רץ במצב `mock` דטרמיניסטי (ללא מפתחות, ללא עלות).
-> פרויקט מתוך [The Sanctioned Path](https://tavor29.github.io/projects/citizen-ai-governance/).
+> פרויקט מתוך [Citizen AI Governance](https://tavorbenshahar.com/projects/citizen-ai-governance/).
 
 ## מה יש בפנים
 

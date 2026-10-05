@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Theme values match the portfolio's design tokens (tavor29.github.io,
+ * Theme values match the portfolio's design tokens (tavorbenshahar.com,
  * src/styles/tokens.css): ink on paper, the four bright shape colours, and
  * the status colours from PRD 9.3 (red = blocked, yellow = needs a
  * mitigation, green = approved). Layout uses logical properties only
